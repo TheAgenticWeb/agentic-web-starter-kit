@@ -1,23 +1,32 @@
 # Agentic Web Starter Kit - Documentation
 
-Welcome to the Agentic Web Starter Kit documentation! This starter kit provides a complete foundation for building production-ready AI agent applications with modern web technologies.
+Welcome to the Agentic Web Starter Kit documentation!
 
-## 📚 Documentation Structure
+## Getting Started
 
-- **[Getting Started](./getting-started.md)** - Installation and quick start guide
-- **[Architecture Overview](./architecture.md)** - Understanding the system architecture
-- **[Chat History](./chat-history.md)** - Persisting and managing conversations
-- **[Tools System](./tools-system.md)** - Adding and using agent tools
-- **[Authentication](./authentication.md)** - Auth0 for AI Agents integration
+- **[Getting Started Guide](./getting-started.md)** - Complete setup walkthrough
+- **[Architecture Overview](./architecture.md)** - How everything fits together
+- **[Task Manager Demo](./task-manager.md)** - Understanding the Trello-style demo app
+
+## Core Features
+
+- **[Chat History](./chat-history.md)** - Multi-conversation management with persistence
+- **[Tools System](./tools-system.md)** - Creating custom tools for your agents
 - **[Error Handling](./error-handling.md)** - Production-ready error patterns
-- **[Deployment](./deployment.md)** - Deploying your application
-- **[Examples](./examples/)** - Code examples and use cases
+- **[Authentication](./authentication.md)** - Setting up Auth0 for AI Agents
 
-## 🎯 What's Included
+## Deployment
+
+- **[Deployment Guide](./deployment.md)** - Deploy to production (Vercel, Netlify, self-hosted)
+
+## Examples
+
+- **[Code Examples](./examples/README.md)** - Common patterns and use cases
+
+## What's Included
 
 ### Core Features
-- ✅ **Cedar-OS UI** - Beautiful, modern chat interface with multiple modes
-- ✅ **Mastra Backend** - Type-safe agent orchestration
+- **Cedar-OS UI** - Beautiful, modern chat interface with multiple modes
 - ✅ **Real-time Streaming** - Server-sent events for streaming responses
 - ✅ **Chat History** - Local storage with easy database migration path
 - ✅ **Tool System** - Extensible tools including web search

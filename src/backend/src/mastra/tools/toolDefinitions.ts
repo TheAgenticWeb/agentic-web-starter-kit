@@ -9,18 +9,30 @@ import { webSearchTool } from './webSearchTool';
 
 // Define the schemas for our tools based on what we registered in page.tsx
 
-// Schema for the addNewTextLine frontend tool
-export const AddNewTextLineSchema = z.object({
-  text: z.string().min(1, 'Text cannot be empty').describe('The text to add to the screen'),
-  style: z
-    .enum(['normal', 'bold', 'italic', 'highlight'])
-    .optional()
-    .describe('Text style to apply'),
+// Task Management Tool Schemas
+export const CreateTaskSchema = z.object({
+  title: z.string().describe('The task title'),
+  description: z.string().optional().describe('Optional task description'),
+  column: z.enum(['todo', 'inProgress', 'review', 'completed']).describe('Which column to add the task to'),
+  priority: z.enum(['low', 'medium', 'high']).optional().describe('Task priority level'),
+  tags: z.array(z.string()).optional().describe('Tags for categorizing the task'),
 });
 
-// Schema for the changeText state setter
-export const ChangeTextSchema = z.object({
-  newText: z.string().min(1, 'Text cannot be empty').describe('The new text to display'),
+export const UpdateTaskSchema = z.object({
+  taskId: z.string().describe('The ID of the task to update'),
+  title: z.string().optional().describe('New task title'),
+  description: z.string().optional().describe('New task description'),
+  priority: z.enum(['low', 'medium', 'high']).optional().describe('New priority level'),
+  tags: z.array(z.string()).optional().describe('New tags'),
+});
+
+export const MoveTaskSchema = z.object({
+  taskId: z.string().describe('The ID of the task to move'),
+  toColumn: z.enum(['todo', 'inProgress', 'review', 'completed']).describe('Destination column'),
+});
+
+export const DeleteTaskSchema = z.object({
+  taskId: z.string().describe('The ID of the task to delete'),
 });
 
 // Error response schema
@@ -29,28 +41,50 @@ export const ErrorResponseSchema = z.object({
   details: z.string().optional(),
 });
 
-// Create backend tools for the frontend tool
-export const addNewTextLineTool = createMastraToolForFrontendTool(
-  'addNewTextLine',
-  AddNewTextLineSchema,
+// Create backend tools for task management frontend tools
+export const createTaskTool = createMastraToolForFrontendTool(
+  'create-task',
+  CreateTaskSchema,
   {
     description:
-      'Add a new line of text to the screen with optional styling. This tool allows the agent to dynamically add text content that will be displayed on the user interface with different visual styles.',
-    toolId: 'addNewTextLine',
+      'Create a new task in the specified column with optional priority and tags. Use this to add tasks to the kanban board.',
+    toolId: 'create-task',
     streamEventFn: streamJSONEvent,
     errorSchema: ErrorResponseSchema,
   },
 );
 
-// Create backend tools for the state setter
-export const changeTextTool = createMastraToolForStateSetter(
-  'mainText', // The state key
-  'changeText', // The state setter name
-  ChangeTextSchema,
+export const updateTaskTool = createMastraToolForFrontendTool(
+  'update-task',
+  UpdateTaskSchema,
   {
     description:
-      'Change the main text displayed on the screen. This tool allows the agent to modify the primary text content that users see, replacing the current text with new content.',
-    toolId: 'changeText',
+      'Update an existing task\'s title, description, priority, or tags. Use the taskId to identify which task to update.',
+    toolId: 'update-task',
+    streamEventFn: streamJSONEvent,
+    errorSchema: ErrorResponseSchema,
+  },
+);
+
+export const moveTaskTool = createMastraToolForFrontendTool(
+  'move-task',
+  MoveTaskSchema,
+  {
+    description:
+      'Move a task from one column to another. Use this to progress tasks through the workflow (To Do → In Progress → Review → Completed).',
+    toolId: 'move-task',
+    streamEventFn: streamJSONEvent,
+    errorSchema: ErrorResponseSchema,
+  },
+);
+
+export const deleteTaskTool = createMastraToolForFrontendTool(
+  'delete-task',
+  DeleteTaskSchema,
+  {
+    description:
+      'Delete a task from the board permanently. Use the taskId to identify which task to remove.',
+    toolId: 'delete-task',
     streamEventFn: streamJSONEvent,
     errorSchema: ErrorResponseSchema,
   },
@@ -63,9 +97,11 @@ export const requestAdditionalContextTool = createRequestAdditionalContextTool()
  * This structure makes it easy to see tool organization and generate categorized descriptions
  */
 export const TOOL_REGISTRY = {
-  textManipulation: {
-    changeTextTool,
-    addNewTextLineTool,
+  taskManagement: {
+    createTaskTool,
+    updateTaskTool,
+    moveTaskTool,
+    deleteTaskTool,
   },
   webSearch: {
     webSearchTool,
@@ -73,4 +109,10 @@ export const TOOL_REGISTRY = {
 };
 
 // Export all tools as an array for easy registration
-export const ALL_TOOLS = [changeTextTool, addNewTextLineTool, webSearchTool];
+export const ALL_TOOLS = [
+  createTaskTool,
+  updateTaskTool,
+  moveTaskTool,
+  deleteTaskTool,
+  webSearchTool,
+];

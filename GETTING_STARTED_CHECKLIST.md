@@ -1,6 +1,6 @@
 # 🚀 Getting Started Checklist
 
-Follow this checklist to get your agentic web app up and running!
+Follow this checklist to get your AI-powered task manager running!
 
 ## ✅ Phase 1: Basic Setup (5 minutes)
 
@@ -25,11 +25,12 @@ Follow this checklist to get your agentic web app up and running!
   pnpm dev
   ```
 
-- [ ] **Open http://localhost:3000 and test the chat**
-  - Try: "Change the text to 'Hello World'"
-  - Try: "Add a new line saying 'This is awesome'"
+- [ ] **Open http://localhost:3000 and test the task manager**
+  - Try: "Create a task to review the project proposal"
+  - Try: "Add 3 tasks for launching the website"
+  - Try: "Move all high priority tasks to In Progress"
 
-**🎉 Congratulations! Your basic agentic web app is running!**
+**🎉 Congratulations! Your AI-powered task manager is running!**
 
 ---
 
@@ -49,63 +50,57 @@ Follow this checklist to get your agentic web app up and running!
   pnpm dev
   ```
 
-- [ ] **Test web search**
-  - Try: "Search the web for latest AI news"
-  - Try: "What are the top AI developments in 2025?"
+- [ ] **Test web search with tasks**
+  - Try: "Create a task to research the latest AI trends"
+  - Try: "Search for project management best practices and create tasks based on what you find"
 
 **🔍 Web search is now enabled!**
 
 ---
 
-## ✅ Phase 3: Explore Chat History (Optional - 10 minutes)
+## ✅ Phase 3: Explore Multi-Thread Boards (5 minutes)
 
-- [ ] **Check the implementation**
-  - Open `src/lib/hooks/useChatHistory.tsx`
-  - Open `src/lib/storage/localStorage.ts`
+- [ ] **Create multiple boards**
+  - Click "New Chat" in the sidebar
+  - Create different boards for different projects
 
-- [ ] **Test in your browser**
-  - Chat messages automatically save to localStorage
-  - Refresh the page - messages persist!
-  - Open DevTools → Application → Local Storage to see data
+- [ ] **Test thread isolation**
+  - Add tasks to Board 1
+  - Switch to Board 2 (empty)
+  - Switch back to Board 1 (tasks preserved!)
 
-- [ ] **Read the migration guide**
-  - See `docs/chat-history.md` for Supabase setup
-  - When ready for production, follow the migration steps
+- [ ] **Test persistence**
+  - Add tasks
+  - Refresh the page
+  - Tasks are still there!
 
-**💾 Chat history is working with localStorage!**
+**🔄 Thread-scoped task boards are working!**
 
 ---
 
-## ✅ Phase 4: Add Your First Custom Tool (15 minutes)
+## ✅ Phase 4: Customize Your Task Manager (15 minutes)
 
-- [ ] **Create a new tool file**
-  ```bash
-  touch src/backend/src/mastra/tools/myCustomTool.ts
-  ```
+- [ ] **Read the demo documentation**
+  - Open `TASK_MANAGER_DEMO.md` for quick reference
+  - Check `docs/task-manager.md` for detailed guide
 
-- [ ] **Copy the weather tool example**
-  - See `docs/examples/README.md` for the template
-  - Or follow `docs/tools-system.md` guide
+- [ ] **Experiment with the UI**
+  - Try different task prompts
+  - Use priorities and tags
+  - Organize a real project
 
-- [ ] **Add to toolDefinitions.ts**
-  ```typescript
-  import { myCustomTool } from './myCustomTool';
-  
-  export const TOOL_REGISTRY = {
-    // ... existing tools
-    custom: {
-      myCustomTool,
-    },
-  };
-  
-  export const ALL_TOOLS = [..., myCustomTool];
-  ```
+- [ ] **Customize the columns**
+  - Edit `src/types/task.ts`
+  - Update `COLUMN_CONFIG` with your workflow
+  - Adjust colors and names
 
-- [ ] **Test your new tool**
-  - Restart dev server
-  - Chat with the agent to test your tool
+- [ ] **Add your own features**
+  - See "Extending This Demo" in `docs/task-manager.md`
+  - Quick wins: due dates, assignees, comments
+  - Medium: drag & drop, search, filters
+  - Advanced: real-time collab, integrations
 
-**🔧 You've created your first custom tool!**
+**🎨 You've customized your task manager!**
 
 ---
 
@@ -167,22 +162,23 @@ Follow this checklist to get your agentic web app up and running!
 
 ## 📖 Next Steps
 
-### Learn the Architecture
-- [ ] Read `docs/architecture.md` to understand the system
-- [ ] Explore the `src/backend/src/mastra/` folder
-- [ ] Study the existing tools and workflows
+### Learn the Task Manager
+- [ ] Read `TASK_MANAGER_DEMO.md` for quick overview
+- [ ] Study `docs/task-manager.md` for deep dive
+- [ ] Understand the agent's task breakdown logic
+- [ ] Review the thread-scoped state pattern
 
-### Build Your App
-- [ ] Define your use case
-- [ ] Design your custom tools
+### Build Your Own App
+- [ ] Keep the task manager or build something new
+- [ ] Design your custom tools (see `docs/tools-system.md`)
 - [ ] Customize the agent instructions
-- [ ] Build your UI
+- [ ] Create your own beautiful UI
 
 ### Ship It
 - [ ] Add error tracking (Sentry)
 - [ ] Set up monitoring
 - [ ] Deploy to production
-- [ ] Share with users!
+- [ ] Share with the community!
 
 ---
 

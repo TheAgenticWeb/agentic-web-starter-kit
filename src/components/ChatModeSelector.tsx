@@ -31,19 +31,19 @@ export function ChatModeSelector({ currentMode, onModeChange }: ChatModeSelector
   ];
 
   return (
-    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur rounded-lg p-2 shadow-lg border z-10">
-      <div className="text-xs font-semibold mb-2 text-gray-600">Chat Modes</div>
-      <div className="flex gap-1">
+    <div className="flex items-center gap-2">
+      <span className="text-xs font-medium text-gray-500">Chat Mode:</span>
+      <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
         {modes.map((mode) => (
           <button
             key={mode.id}
             onClick={() => onModeChange(mode.id)}
             className={`
-              flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors
+              flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all
               ${
                 currentMode === mode.id
-                  ? 'bg-blue-500 text-white'
-                  : 'hover:bg-gray-100 text-gray-700'
+                  ? 'bg-white text-blue-600 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
               }
             `}
             title={mode.description}

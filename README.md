@@ -1,15 +1,38 @@
 # Agentic Web Starter Kit
 
+<div align="center">
+  
+  ![Agentic Task Manager Demo](./public/example.png)
+  
+  <p align="center">
+    <em>An example implementation showing how to build AI-native applications where agents control state and UI through natural language</em>
+  </p>
+  <p align="center">
+    <strong>This starter kit demonstrates the building blocks for creating agentic web apps</strong> - from state management and tool creation to agent orchestration and beautiful UI
+  </p>
+</div>
+
+---
+
 A production-ready starter kit for building AI agent applications with modern web technologies. Built with [Cedar-OS](https://cedar.ai) for beautiful chat UI and [Mastra](https://mastra.ai) for powerful agent orchestration.
+
+**Includes a complete task manager demo** - a real-world reference implementation showing agentic patterns in action. Use it as-is, or replace it with your own AI-native application.
 
 **Perfect for developers at [theagenticweb.dev](https://theagenticweb.dev) who want to build agentic web apps fast.**
 
 ## ✨ Features
 
+### Demo Application: AI-Powered Task Manager
+- **📋 Trello-Style Board** - Complete kanban board with 4 columns (To Do, In Progress, Review, Completed)
+- **🤖 Natural Language Control** - Create and manage tasks through conversation with AI
+- **✨ Smooth Animations** - Framer Motion powered transitions and interactions
+- **🎨 Priority & Tags** - Color-coded priorities and flexible tagging system
+- **🔄 Thread-Scoped Boards** - Each conversation thread has its own task board
+
 ### Core Features
 - **🤖 AI Chat Integration** - Built-in chat workflows powered by OpenAI through Mastra agents
 - **⚡ Real-time Streaming** - Server-sent events (SSE) for streaming AI responses with progress updates
-- **🎨 Beautiful UI** - Cedar-OS components with 3D effects and modern design
+- **🎨 Beautiful UI** - Cedar-OS components with modern design
 - **🔧 Type-safe Workflows** - Mastra-based backend with full TypeScript support
 - **💬 Multi-Thread Conversations** - Cedar-native thread management with persistence across page refreshes
 - **🎯 Thread-Scoped State** - UI state isolated per conversation thread
@@ -19,20 +42,6 @@ A production-ready starter kit for building AI agent applications with modern we
 - **📚 Comprehensive Docs** - Complete documentation in `/docs` folder
 
 ## Quick Start
-
-The fastest way to get started:
-
-```bash
-npx cedar-os-cli plant-seed
-```
-
-Then select this template when prompted. This will set up the entire project structure and dependencies automatically.
-
-This template contains the Cedar chat connected to a mastra backend to demonstrate what endpoints need to be implemented.
-
-For more details, see the [Cedar Getting Started Guide](https://docs.cedarcopilot.com/getting-started/getting-started).
-
-## Manual Setup
 
 ### Prerequisites
 
@@ -91,10 +100,12 @@ This runs both:
 
 4. **Try it out!**
 
-Open http://localhost:3000 and start chatting with your AI agent. Try:
-- "Change the main text to 'Hello World'"
-- "Add a new line saying 'This is awesome'"
-- "Search the web for latest AI news" (if EXA_API_KEY is set)
+Open http://localhost:3000 and start chatting with your AI task assistant. Try:
+- "Create a task to review the Q4 budget in the Review column"
+- "Add three tasks for the new website project"
+- "Move all high priority tasks to In Progress"
+- "Create a task to research competitors" (will use web search if EXA_API_KEY is set)
+- "Organize my tasks by priority"
 
 ## Project Architecture
 

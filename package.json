@@ -1,9 +1,9 @@
 {
   "name": "agentic-web-starter-kit",
-  "version": "0.1.0",
-  "description": "Production-ready starter kit for building AI agent applications with Cedar-OS and Mastra",
+  "version": "0.2.0",
+  "description": "Production-ready starter kit with a Trello-style task manager demo. Build AI agent applications with Cedar-OS and Mastra",
   "private": true,
-  "keywords": ["ai", "agents", "cedar-os", "mastra", "nextjs", "typescript", "agentic-web"],
+  "keywords": ["ai", "agents", "cedar-os", "mastra", "nextjs", "typescript", "agentic-web", "task-manager", "kanban"],
   "scripts": {
     "dev": "dotenv -e .env -- concurrently -n \"NEXT,MASTRA\" -c \"blue.bold,magenta.bold\" \"npm run dev:next\" \"npm run dev:mastra\"",
     "dev:next": "next dev --turbopack",

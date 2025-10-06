@@ -2,6 +2,37 @@
 
 All notable changes to the Agentic Web Starter Kit.
 
+## [0.2.0] - 2025-10-06
+
+### 🎉 Major Update: Trello-Style Task Manager
+
+Complete replacement of the demo application with a production-ready task management system.
+
+### ✨ Added
+- **Task Manager UI** - Beautiful Trello-style kanban board with 4 columns
+- **Task CRUD Operations** - Create, update, move, and delete tasks via AI
+- **Framer Motion** - Smooth animations and transitions throughout the UI
+- **Priority System** - Color-coded task priorities (low, medium, high)
+- **Tagging System** - Flexible tags for task categorization
+- **Task Tools** - Complete set of backend tools for task management
+- **Smart Agent** - AI assistant that breaks down projects and organizes work
+- **Thread-Scoped Boards** - Each conversation has its own independent task board
+
+### 🎨 UI Components
+- `TaskBoard` - Main kanban board container
+- `TaskColumn` - Individual column with task list
+- `TaskCard` - Animated task card with priority/tag badges
+- Type definitions in `src/types/task.ts`
+
+### 🔧 Technical Improvements
+- Enhanced agent instructions for task management
+- Frontend tools properly typed with no return values (Cedar convention)
+- Clean separation between backend validation and frontend execution
+- Professional gradient background and modern styling
+
+### 🚀 What This Means
+The starter kit now showcases a **real-world application** instead of a basic text demo. Developers can see exactly how to build agentic UIs where AI controls complex state through natural language.
+
 ## [0.1.1] - 2025-10-06
 
 ### ✨ Added
